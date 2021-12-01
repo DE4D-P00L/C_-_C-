@@ -13,7 +13,6 @@ class Linklist
     public:
         Node* head;
         Node* tail;
-        Node* temp2;
         Node* prev;
         Linklist(){
             head = NULL;
@@ -37,7 +36,6 @@ class Linklist
         void remove(int val){                       
             Node* it = head; 
             bool flag = false;  
-
 
             if(head != NULL){
                 if(head->data == val){
@@ -104,7 +102,7 @@ class Linklist
 int main(){
     Linklist list;
     int ch,x;
-    cout<<"Link List \n1. Insert\n2. Delete\n3. Print\n4. Search\n5. Exitn";
+    cout<<"Link List \n1. Insert\n2. Delete\n3. Print\n4. Search\n5. Exit\n";
     while (true){
         cout<<"Enter Choice : ";
         cin>>ch;
@@ -135,8 +133,6 @@ int main(){
         case 5:
             exit(0);
             break;
-
-        
         default:
             cout<<"Enter correct choice!";
             break;
@@ -144,5 +140,3 @@ int main(){
     }
     return 0;
 }
-
-
