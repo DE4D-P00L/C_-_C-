@@ -126,26 +126,60 @@ class BSTree
 
 int main(){
     BSTree tree;
-    // tree.insert(5);
-    // tree.insert(3);
-    // cout<<tree.root->left->data<<endl;
-    // tree.insert(7);
-    // tree.insert(1);
-    // tree.insert(4);
-    // tree.insert(6);
-    // tree.insert(8);
-    tree.insertRoot(5);
-    tree.insertLeft(5,3);
-    tree.insertRight(5,7);
-    tree.insertLeft(3,1);
-    tree.insertRight(3,4);
-    tree.insertLeft(7,6);
-    tree.insertRight(7,8);
-    cout<<"\n\nPreOrder"<<endl;
-    tree.preOrder(tree.root);
-    cout<<"\n\nInOrder"<<endl;
-    tree.inOrder(tree.root);
-    cout<<"\n\nPostOrder"<<endl;
-    tree.postOrder(tree.root);
+    int ch,chIns,val,p;
+    choice:
+        cout<<"\nCreate Tree\n1.Create Root\n2.Exit\nChoice: ";
+        cin>>ch;
+        if(ch==1){
+            cout<<"Enter Root value :";
+            cin>>val;
+            tree.insertRoot(val);
+        }
+
+        else if(ch==2){
+            exit(0);
+        }
+
+        else{
+            cout<<"Wrong Choice";
+            goto choice;
+        }
+    while(true){
+        cout<<"\nBinary Tree\n1.Insert\n2.Delete\n3.Traversals\n4.Exit\nChoice: ";
+        cin>>ch;
+        switch(ch){
+            case 1: cout<<"\nInsert\n1.Insert Left\n2.Insert Right\n3.Back\nChoice: ";
+                    cin>>chIns;
+                    switch (chIns)
+                    {
+                    case 1:
+                        cout<<"Enter Parent and Element value: ";
+                        cin>>p>>val;
+                        tree.insertLeft(p,val);
+                        break;
+                    case 2:
+                        cout<<"Enter Parent and Element value: ";
+                        cin>>p>>val;
+                        tree.insertRight(p,val);
+                        break;
+                    default:
+                        break;
+                    }
+                    break;
+
+            case 3:  cout<<"\nPreOrder"<<endl;
+                     tree.preOrder(tree.root);
+                     cout<<"\nInOrder"<<endl;
+                     tree.inOrder(tree.root);
+                     cout<<"\nPostOrder"<<endl;
+                     tree.postOrder(tree.root);
+                     cout<<endl;
+                     break; 
+
+            case 4: exit(0);
+
+            default: cout<<"\nWrong Choice!\n";
+        }
+    }
     return 0;
 }
